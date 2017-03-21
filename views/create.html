@@ -1,0 +1,22 @@
+<div class="create-top col-xs-12">
+  <div class="header">Article</div>
+  <button class="button-delete btn btn-danger" ng-if="challengeController.currentArticleId" ng-click="challengeController.delete()">delete</button>
+</div>
+<div class="col-xs-12">
+	<form id="form-article-update">
+		<div class="form-group">
+			<label class="col-xs-1">Title:</label>
+			<input class="col-xs-11" ng-model="challengeController.title" type="text">
+		</div>
+		<div class="form-group">
+			<label class="col-xs-1">Description:</label>
+			<textarea class="col-xs-11" ng-model="challengeController.description"></textarea>
+		</div>
+		<div class="form-group">
+			<label class="col-xs-1">Choose JPEG Image:</label>
+			<input type="file" name="image_file" id="image_file" ng-model="challengeController.file"/>
+		</div>
+
+		<button class="btn" ng-class="challengeController.currentArticleId ? 'btn-primary' : 'btn-success'" ng-click="challengeController.createOrUpdate()">{{challengeController.currentArticleId ? 'update' : 'create'}}</button>
+	</form>
+</div>
