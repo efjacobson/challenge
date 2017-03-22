@@ -1,22 +1,30 @@
 <div class="create-top col-xs-12">
-  <div class="header">Article</div>
-  <button class="button-delete btn btn-danger" ng-if="challengeController.currentArticleId" ng-click="challengeController.delete()">delete</button>
+  <div class="col-xs-10">
+  	<div class="header">Article</div>
+  </div>
+  <div class="col-xs-2">
+  	<button class="button-delete btn btn-danger" ng-if="challengeController.currentArticleId" ng-click="challengeController.delete()">delete</button>
+  </div>
 </div>
 <div class="col-xs-12">
-	<form id="form-article-update">
-		<div class="form-group">
-			<label class="col-xs-1">Title:</label>
-			<input class="col-xs-11" ng-model="challengeController.title" type="text">
+	<form id="form-article-update col-xs-12">
+		<div class="form-group col-xs-12">
+			<label class="col-xs-2">Title:</label>
+			<input class="col-xs-10" ng-model="challengeController.title" type="text">
 		</div>
-		<div class="form-group">
-			<label class="col-xs-1">Description:</label>
-			<textarea class="col-xs-11" ng-model="challengeController.description"></textarea>
+		<div class="form-group col-xs-12">
+			<label class="col-xs-2">Description:</label>
+			<textarea class="col-xs-10" ng-model="challengeController.description"></textarea>
 		</div>
-		<div class="form-group">
-			<label class="col-xs-1">Choose JPEG Image:</label>
+		<div class="form-group col-xs-12">
+			<label class="col-xs-2">Choose JPEG Image:</label>
 			<input type="file" name="image_file" id="image_file" ng-model="challengeController.file"/>
 		</div>
-
+		<div class="form-group col-xs-12">
+			<label class="col-xs-2">Current Image:</label>
+		<div class="edit-article-image-preview col-xs-12 col-sm-6 col-md-4 col-lg-3" style="background-image: url('https://s3-us-west-2.amazonaws.com/challenge.article/{{challengeController.image}}');">
+		</div>
+		</div>
 		<button class="btn" ng-class="challengeController.currentArticleId ? 'btn-primary' : 'btn-success'" ng-click="challengeController.createOrUpdate()">{{challengeController.currentArticleId ? 'update' : 'create'}}</button>
 	</form>
 </div>

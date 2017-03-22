@@ -2,7 +2,14 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
-.list-admin-top > .header {
+.list-admin-top > .header,
+.create-top > .header {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3em;
+    color: #000;
+    margin-bottom: 20px;
     float: left;
 }
 
@@ -40,7 +47,8 @@ body {
 }
 
 .select-order-by {
-	float: right;
+	float: left;
+  margin-left: 40px;
 }
 
 .list-holder {
@@ -85,6 +93,7 @@ body {
 	color: #fff;
 }
 
+.list-admin-title,
 .list-admin-description {
 	width: 100%;
 	white-space: nowrap;
@@ -111,6 +120,11 @@ body {
       text-transform: uppercase;
       color: #fff;
     }
+
+.edit-article-image-preview {
+  height: 310px;
+  background-size: cover;
+}
 
 @media only screen and (max-width: 767px) {
     .navbar-collapse{

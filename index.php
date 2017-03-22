@@ -313,6 +313,9 @@
     }
 
     function _createOrUpdate() {
+      if(!vm.title || !vm.description) {
+        _onError();
+      } else {
       var uniqueId = '';
       if (document.getElementById('image_file').files[0]) {
         var timeStamp = (new Date()).toISOString().replace(/[^0-9]/g, "");
@@ -342,6 +345,8 @@
             }
           )
       }
+      }
+
     }
 
     function _onError(response) {
@@ -372,6 +377,7 @@
 
         var img = document.createElement("img");
         var reader = new FileReader();
+
         reader.onload = (function(aImg) {
           return function(e) {
             aImg.src = e.target.result;
@@ -387,6 +393,7 @@
             });
           };
         })(img);
+
         reader.readAsDataURL(file);
       }
     }
@@ -405,10 +412,11 @@
         )
     }
 
-    function _editArticle(id, title, description) {
+    function _editArticle(id, title, description, image) {
       vm.currentArticleId = id;
       vm.title = title;
       vm.description = description;
+      vm.image = image;
       $location.path('/create');
     }
 
