@@ -55,11 +55,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-route.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
-  <script src="https://code.angularjs.org/1.6.0/angular-animate.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
+<script src="https://code.angularjs.org/1.6.0/angular-animate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
 <script type="text/javascript">
-
 </script>
 <script>
 (function() {
@@ -78,7 +77,7 @@
       $('.navbar-toggle').toggleClass('sidebar');
     }
 
-});
+  });
 })();
 
 (function() {
@@ -178,7 +177,7 @@
         description: description
       }
 
-      if(image) {
+      if (image) {
         image += '.jpg';
         data.image = image;
       }
@@ -204,7 +203,7 @@
         description: description
       }
 
-      if(image) {
+      if (image) {
         image += '.jpg';
         data.image = image;
       }
@@ -259,10 +258,13 @@
     // vm.file = null;
     // vm.errFile = null;
 
-    vm.howToOrderOptions = [
-      {id: '1', name: 'title'},
-      {id: '2', name: 'date'}
-    ];
+    vm.howToOrderOptions = [{
+      id: '1',
+      name: 'title'
+    }, {
+      id: '2',
+      name: 'date'
+    }];
 
     vm.createOrUpdate = _createOrUpdate;
     vm.getArticle = _getArticle;
@@ -313,66 +315,66 @@
     }
 
     function _createOrUpdate() {
-      if(!vm.title || !vm.description) {
+      if (!vm.title || !vm.description) {
         _onError();
       } else {
-      var uniqueId = '';
-      if (document.getElementById('image_file').files[0]) {
-        var timeStamp = (new Date()).toISOString().replace(/[^0-9]/g, "");
-        var randomString = Math.random().toString(36).substring(7);
-        uniqueId = timeStamp + '-' + randomString;
-      }
-      if (!vm.currentArticleId) {
-        challengeService.createArticle(vm.title, vm.description, uniqueId)
-          .then(
-            function(response) {
-              _uploadImage(uniqueId);
-              _onSuccess('The article was created.');
-            },
-            function(response) {
-              _onError(response);
-            }
-          );
-      } else {
-        challengeService.updateArticle(vm.currentArticleId, vm.title, vm.description, uniqueId)
-          .then(
-            function(response) {
-              _uploadImage(uniqueId);
-              _onSuccess('The article was updated.');
-            },
-            function(response) {
-              _onError(response);
-            }
-          )
-      }
+        var uniqueId = '';
+        if (document.getElementById('image_file').files[0]) {
+          var timeStamp = (new Date()).toISOString().replace(/[^0-9]/g, "");
+          var randomString = Math.random().toString(36).substring(7);
+          uniqueId = timeStamp + '-' + randomString;
+        }
+        if (!vm.currentArticleId) {
+          challengeService.createArticle(vm.title, vm.description, uniqueId)
+            .then(
+              function(response) {
+                _uploadImage(uniqueId);
+                _onSuccess('The article was created.');
+              },
+              function(response) {
+                _onError(response);
+              }
+            );
+        } else {
+          challengeService.updateArticle(vm.currentArticleId, vm.title, vm.description, uniqueId)
+            .then(
+              function(response) {
+                _uploadImage(uniqueId);
+                _onSuccess('The article was updated.');
+              },
+              function(response) {
+                _onError(response);
+              }
+            )
+        }
       }
 
     }
 
     function _onError(response) {
-            toaster.pop({
-                type: 'error',
-                title: 'Uh Oh!',
-                body: 'Something went wrong. You should make fun of Eric.',
-                showCloseButton: true
-            });
-            console.log(response);
+      toaster.pop({
+        type: 'error',
+        title: 'Uh Oh!',
+        body: 'Something went wrong. You should make fun of Eric.',
+        showCloseButton: true
+      });
+      console.log(response);
     }
 
     function _onSuccess(message) {
 
-                            toaster.pop({
-                type: 'success',
-                title: 'You did it!',
-                body: message,
-                showCloseButton: true
-            });
-              _getAllArticles();
+      toaster.pop({
+        type: 'success',
+        title: 'You did it!',
+        body: message,
+        showCloseButton: true
+      });
+      _getAllArticles();
     }
 
     function _uploadImage(uniqueId) //t=this
     {
-      if(uniqueId) {
+      if (uniqueId) {
         var file = document.getElementById('image_file').files[0];
 
         var img = document.createElement("img");

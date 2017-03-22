@@ -7,18 +7,20 @@
   </div>
 </div>
 <div class="list-admin-header col-xs-12">
-      <div class="col-xs-1 col-sm-1">{{challengeController.schema[0]}}</div>
-      <div class="col-xs-3 col-sm-2">{{challengeController.schema[1]}}</div>
-      <div class="col-xs-4 col-sm-8">{{challengeController.schema[2]}}</div>
-      <div class="col-xs-4 col-sm-1">action</div>
+  <div class="col-xs-1 col-sm-1">{{challengeController.schema[0]}}</div>
+  <div class="col-xs-3 col-sm-2">{{challengeController.schema[1]}}</div>
+  <div class="col-xs-4 col-sm-8">{{challengeController.schema[2]}}</div>
+  <div class="col-xs-4 col-sm-1">action</div>
 </div>
 <div class="list-admin-contents col-xs-12" ng-repeat="article in challengeController.articles">
-      <div class="col-xs-1 col-sm-1">{{article.id}}</div>
-      <div class="col-xs-3 col-sm-2">
-        <div class="list-admin-title">{{article.title}}</div>
-      </div>
-      <div class="col-xs-4 col-sm-8">
-        <div class="list-admin-description">{{article.description}}</div>
-      </div>
-      <div class="col-xs-4 col-sm-1"><button class="btn btn-primary" ng-click="challengeController.editArticle(article.id, article.title, article.description, article.image)">update</button></div>
+  <div class="col-xs-1 col-sm-1">{{article.id}}</div>
+  <div class="col-xs-3 col-sm-2">
+    <div class="list-admin-title">{{article.title}}</div>
+  </div>
+  <div class="col-xs-4 col-sm-8">
+    <div class="list-admin-description">{{article.description}}</div>
+  </div>
+  <div class="col-xs-4 col-sm-1">
+    <button class="btn btn-primary" ng-click="challengeController.editArticle(article.id, article.title, article.description, article.image)">update</button>
+  </div>
 </div>

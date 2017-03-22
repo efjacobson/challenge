@@ -1,18 +1,18 @@
 <div class="list-holder">
-<div class="list-top col-xs-12">
-  <div class="list-top-header">Trending Articles</div>
-  <div class="select-order-by">
-  <div>Order by:</div>
-  <select ng-model="challengeController.howToOrder">
-  	<option ng-repeat="option in challengeController.howToOrderOptions">{{option.name}}</option>
-  </select>
+  <div class="list-top col-xs-12">
+    <div class="list-top-header">Trending Articles</div>
+    <div class="select-order-by">
+      <div>Order by:</div>
+      <select ng-model="challengeController.howToOrder">
+        <option ng-repeat="option in challengeController.howToOrderOptions">{{option.name}}</option>
+      </select>
+    </div>
   </div>
-</div>
-<div class="list-item col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="article in challengeController.articles | orderBy: challengeController.howToOrder">
-  <div class="article-body" style="background-image: url('https://s3-us-west-2.amazonaws.com/challenge.article/{{article.image}}');">
+  <div class="list-item col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="article in challengeController.articles | orderBy: challengeController.howToOrder">
+    <div class="article-body" style="background-image: url('https://s3-us-west-2.amazonaws.com/challenge.article/{{article.image}}');">
       <div class="list-title-content col-xs-12">{{article.title}}</div>
       <div class="list-description-content col-xs-12">{{article.description}}</div>
       <div class="list-date-content col-xs-12">{{article.date.substring(0,10)}}</div>
+    </div>
   </div>
-</div>
 </div>
